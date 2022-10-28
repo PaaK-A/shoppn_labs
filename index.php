@@ -21,7 +21,7 @@
 <table>
   <tr>
     <th>Title</th>
-    <th colspan="3">Link</th>
+    <th colspan="4">Link</th>
   </tr>
 
   <tr>
@@ -99,7 +99,7 @@
   </tr>
 
   <tr>
-    <td>Task 6&7</td>
+    <td>Task 7&8</td>
    
     <td>
       <a href="login/register.php">Register</a>
@@ -113,7 +113,7 @@
         
         // Check if the user is already logged in
         // If yes check if admin
-        //If admin display Logout and Brand
+        //If admin display Logout and Brand and Category
         //If user display logout only 
         //else display login 
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -126,9 +126,6 @@
     <td>
       <?php      
             echo '<a href="admin/brand.php">Brand</a>';
-            exit;
-          }
-        
       ?>
     </td>
     <td>
@@ -137,8 +134,11 @@
             exit;
           }
         
-        
-      
+          else{
+            echo '<a href="login/logout.php">Logout</a>';
+          }
+        }
+
         else{
           echo '<a href="login/login.php">Login</a>';
         }
