@@ -1,3 +1,7 @@
+<?php 
+//to start session
+include ("settings/core.php");?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +38,7 @@
     <td>
       <?php
         // Initialize the session
-        session_start();
+      
         
         // Check if the user is already logged in
         // If yes check if admin
@@ -49,7 +53,7 @@
         }
       ?>
     </td>
-    
+
 
   </tr>
 
@@ -62,9 +66,6 @@
 
     <td>
       <?php
-        // Initialize the session
-        session_start();
-        
         // Check if the user is already logged in
         // If yes check if admin
         //If admin display Logout and Brand
@@ -77,6 +78,7 @@
        
       ?>
     </td>
+
     <td>
       <?php      
             echo '<a href="admin/brand.php">Brand</a>';
@@ -96,6 +98,7 @@
       ?>
       
     </td>
+    
   </tr>
 
   <tr>
@@ -108,8 +111,6 @@
 
     <td>
       <?php
-        // Initialize the session
-        session_start();
         
         // Check if the user is already logged in
         // If yes check if admin
