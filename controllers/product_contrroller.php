@@ -50,4 +50,27 @@ function addCategory_ctr($catname){
     return $addItem->addCategory_cls($catname);
 }
 
+//--SELECT ALL categories--//
+function selectAllCategories_ctr(){
+    $selectAll= new product_class();
+
+    return $selectAll->selectAllCategories_cls();
+    
+}
+
+//--SELECT A Category--//
+function selectACategory_ctr($categoryid){
+    $selectAll= new product_class();
+
+    return $selectAll->selectACategory_cls($categoryid);
+    
+}
+
+//--update catgeory cls--//
+function updateCategory_ctr($editedcategory,$categoryID){
+    $updateItem= new product_class();
+
+    return $updateItem->updateCategory_cls($editedcategory,$categoryID);
+}
+
 ?>
