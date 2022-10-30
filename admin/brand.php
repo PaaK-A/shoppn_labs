@@ -47,10 +47,7 @@
         <br>
         <br>
         <!--submit button-->
-        <input type="submit" name="brandinfo" value="Add">
-
-        <!-- to edit brand page button-->
-        <button type="button" onclick="location.href='editbrand.php'">Edit Brand</button>
+        <input type="submit" name="brandinfo" value="Add"> 
     </form>
     
     <br>
