@@ -66,7 +66,7 @@ class product_class extends db_connection{
 
 	//category
 
-	//-INSERT brand--//
+	//-INSERT category--//
 	public function addCategory_cls($categoryname){
 		//write query
 		
@@ -75,6 +75,37 @@ class product_class extends db_connection{
 		//execute 	
 		//print $insertsql;
 		return $this -> db_query($insertsql);
+	}
+
+	//--SELECT All categories--//
+	public function selectAllCategories_cls(){
+		//write query
+		
+		$selallsql = "SELECT * FROM categories";
+
+		//execute 	
+		return $this -> db_fetch_all($selallsql);
+	}
+
+	//--SELECT A Category--//
+	public function selectACategory_cls($categoryid){
+		//write query
+		
+		$selsql = "SELECT * FROM categories WHERE cat_id= '$categoryid'";
+
+		//execute 	
+		return $this -> db_fetch_one($selsql);
+	}
+
+	//-update category--//
+	public function updateCategory_cls($editedcategory,$categoryID){
+		//write query
+		
+		$updatesql = "UPDATE categories SET cat_name='$editedcategory' WHERE cat_id= '$categoryID' ";
+        
+		//execute 	
+		//print $insertsql;
+		return $this -> db_query($updatesql);
 	}
 
 
