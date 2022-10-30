@@ -60,6 +60,32 @@
     <br>
     <br>
 
+    <table class="table">
+            <thead>
+                <th>Category</th>
+                <th colspan="2">Action</th>
+            </thead>
+
+            <tbody>
+            <?php
+                $selectall= selectAllCategories_ctr();
+                
+                foreach ($selectall as $row) 
+                :
+            ?>
+                
+                <tr>
+                    <td><?php echo $row['cat_name']; ?></td>
+
+                    <td>
+                        <a href="editcategory.php?id=<?php echo $row['cat_id']; ?>" class="edit">Edit</a>
+
+                    </td>
     
+                </tr>
+            <?php endforeach;?>
+            
+        </tbody>
+    </table>
     
 </body>
