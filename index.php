@@ -22,133 +22,24 @@ include ("settings/core.php");?>
 
 <body> 
 <h1> Basic Task Index </h1>
-<table>
-  <tr>
-    <th>Title</th>
-    <th colspan="4">Link</th>
-  </tr>
 
-  <tr>
-
-    <td>Task 1-4</td>
-    <td>
-      <a href="login/register.php">Register</a>
-      <!-- <a href="login/login.php">Login</a> -->
-    </td>
-    <td>
-      <?php
-        // Initialize the session
-      
-        
-        // Check if the user is already logged in
-        // If yes check if admin
-        //If admin display Logout and Brand 
-        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-          echo '<a href="login/logout.php">Logout</a>';
-          
-        }
-        else{
-          echo '<a href="login/login.php">Login</a>';
-          
-        }
-      ?>
-    </td>
-
-
-  </tr>
-
-  <tr>
-    <td>Task 5&6</td>
-    <td>
-      <a href="login/register.php">Register</a>
-      <!-- <a href="login/login.php">Login</a> -->
-    </td>
-
-    <td>
-      <?php
-        // Check if the user is already logged in
-        // If yes check if admin
-        //If admin display Logout and Brand
-        //If user display logout only 
-        //else display login 
-        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-
-          if($_SESSION["role"] == 1){
-            echo '<a href="login/logout.php">Logout</a>';
-       
-      ?>
-    </td>
-
-    <td>
-      <?php      
-            echo '<a href="admin/brand.php">Brand</a>';
-            exit;
-          }
-          
-          else{
-            echo '<a href="login/logout.php">Logout</a>';
-          }
-        
-        }
-        
-        else{
-          echo '<a href="login/login.php">Login</a>';
-        }
-        
-      ?>
-      
-    </td>
-    
-  </tr>
-
-  <tr>
-    <td>Task 7&8</td>
-   
-    <td>
-      <a href="login/register.php">Register</a>
-      <!-- <a href="login/login.php">Login</a> -->
-    </td>
-
-    <td>
-      <?php
-        
-        // Check if the user is already logged in
-        // If yes check if admin
-        //If admin display Logout and Brand and Category
-        //If user display logout only 
-        //else display login 
-        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-
-          if($_SESSION["role"] == 1){
-            echo '<a href="login/logout.php">Logout</a>';
-       
-      ?>
-    </td>
-    <td>
-      <?php      
-            echo '<a href="admin/brand.php">Brand</a>';
-      ?>
-    </td>
-    <td>
-      <?php      
-            echo '<a href="admin/category.php">Category</a>';
-            exit;
-          }
-        
-          else{
-            echo '<a href="login/logout.php">Logout</a>';
-          }
-        }
-
-        else{
-          echo '<a href="login/login.php">Login</a>';
-        }
-        
-      ?>
-      
-    </td>
-  </tr>
+<?php
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+  if($_SESSION["role"] == 1){
+    echo '<a href="login/logout.php">Logout</a>';
+    echo '<a href="admin/brand.php">Brand</a>';
+    echo '<a href="admin/category.php">Category</a>';
+  }
+  else{
+    echo '<a href="login/logout.php">Logout</a>';
+  }
+}
+else{
+  echo '<a href="login/login.php">Login</a>';
   
-</table>
+  echo '<a href="login/register.php">Register</a>';
+}
+?>
+
 </body>
 
