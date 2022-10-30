@@ -1,3 +1,5 @@
+<script src="../js/alertRedirect.js"></script>
+
 <?php
 include "../controllers/product_contrroller.php";
     
@@ -6,11 +8,12 @@ if(ISSET($_POST['brandinfo'])){
     
     $get_brand= $_POST['productbrand'];
 
-    addBrand_ctr($get_brand);
+    if(addBrand_ctr($get_brand) != NULL){
+        echo '<script>alertRedirect_admin("Record Added","brand.php")</script>';
+    }
+    else{
+        print("Brand Not Added.");
+    }
 
-    //echo "$get_brand";
-    
-    header("Location: ../admin/brand.php");
-    exit();
 }
 ?>
