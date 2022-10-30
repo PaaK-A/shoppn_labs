@@ -1,3 +1,5 @@
+<script src="../js/alertRedirect.js"></script>
+
 <?php
 include("../settings/core.php");
 include "../controllers/product_contrroller.php";
@@ -18,7 +20,7 @@ if(ISSET($_POST['editbrandinfo'])){
         //print("Record Updated.");
         echo 
         '<script type="text/javascript">
-        alert("Changes made.");
+        alertRedirect_admin("Brand Updated.","brand.php");
         </script>';
     }
     else{
@@ -48,9 +50,3 @@ if(ISSET($_POST['editbrandinfo'])){
      <button type="button" onclick="location.href='../admin/brand.php'">Return to Brand</button>
 </body>
 </html>
-
-<script type="text/javascript">
-    
-    function popup() { alert("Welcome"); }
-    
-</script>
