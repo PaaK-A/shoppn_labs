@@ -4,10 +4,10 @@ include("../classes/product_class.php");
 
 
 //--INSERT product cls--//
-function addProduct_ctr($a,$b,$c,$d,$e,$f,$g){
+function addProduct_ctr($pcategory,$pbrand,$ptitle,$pprice,$pdescription,$pimage,$pkeywords){
     $addItem= new product_class();
 
-    return $addItem->addProduct_cls($a,$b,$c,$d,$e,$f,$g);
+    return $addItem->addProduct_cls($pcategory,$pbrand,$ptitle,$pprice,$pdescription,$pimage,$pkeywords);
     
 }
 
