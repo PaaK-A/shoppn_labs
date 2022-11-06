@@ -47,7 +47,7 @@
         <br>
         <br>
         <!--submit button-->
-        <input type="submit" name="brandinfo" value="Add"> 
+        <input type="submit" name="brandinfo" id="add_brandinfo" value="Add"> 
     </form>
     
     <br>
