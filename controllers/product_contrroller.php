@@ -2,6 +2,9 @@
 //connect to the user account class
 include("../classes/product_class.php");
 
+/*
+PRODUCTS 
+*/
 
 //--INSERT product cls--//
 function addProduct_ctr($pcategory,$pbrand,$ptitle,$pprice,$pdescription,$pimage,$pkeywords){
@@ -10,6 +13,33 @@ function addProduct_ctr($pcategory,$pbrand,$ptitle,$pprice,$pdescription,$pimage
     return $addItem->addProduct_cls($pcategory,$pbrand,$ptitle,$pprice,$pdescription,$pimage,$pkeywords);
     
 }
+
+//--SELECT ALL PRODUCTS--//
+function selectAllProducts_ctr(){
+    $selectAll= new product_class();
+
+    return $selectAll->selectAllProducts_cls();
+    
+}
+
+//--SELECT A Product--//
+function selectAProduct_ctr($productid){
+    $selectAProduct= new product_class();
+
+    return $selectAProduct->selectAProduct_cls($productid);
+    
+}
+
+//--update product cls--//
+function updateProduct_ctr($pcategory,$pbrand,$ptitle,$pprice,$pdescription,$pimage,$pkeywords,$productID){
+    $updateItem= new product_class();
+
+    return $updateItem->updateProduct_cls($pcategory,$pbrand,$ptitle,$pprice,$pdescription,$pimage,$pkeywords,$productID);
+}
+
+/*  
+BRANDS
+*/
 
 //--INSERT brand cls--//
 function addBrand_ctr($a){
