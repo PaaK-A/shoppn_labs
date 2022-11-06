@@ -22,6 +22,41 @@ class product_class extends db_connection{
 		return $this -> db_query($insertsql);
 	}
 
+	//--SELECT All PRODUCTS--//
+	public function selectAllProducts_cls(){
+		//write query
+		
+		$selallsql = "SELECT * FROM products";
+
+		//execute 	
+		return $this -> db_fetch_all($selallsql);
+	}
+
+	//--SELECT A product--//
+	public function selectAProduct_cls($productid){
+		//write query
+		
+		$selsql = "SELECT * FROM products WHERE product_id= '$productid'";
+
+		//execute 	
+		return $this -> db_fetch_one($selsql);
+	}
+
+	//-update product--//
+	public function updateProduct_cls($pcategory,$pbrand,$ptitle,$pprice,$pdescription,$pimage,$pkeywords,$productID){
+		//write query
+		
+		$updatesql = " UPDATE products SET product_cat='$pcategory',product_brand ='$pbrand',product_title='$ptitle',product_price='$pprice',product_desc='$pdescription',product_image='$pimage',product_keywords='$pkeywords' WHERE product_id= '$productID' ";
+		
+		//execute 	
+		//print $updatesql;
+		return $this -> db_query($updatesql);
+	}	
+
+	/* 
+	BRANDS
+	*/
+
 	//-INSERT brand--//
 	public function addBrand_cls($brandname){
 		//write query
