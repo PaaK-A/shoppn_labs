@@ -26,20 +26,24 @@ include ("settings/core.php");?>
 <?php
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   if($_SESSION["role"] == 1){
-    echo '<a href="login/logout.php">Logout</a>';
+    echo '<a class="index" href="login/logout.php">Logout</a>';
     echo " ";
-    echo '<a href="admin/brand.php">Brand</a>';
+    echo '<a class="index" href="admin/brand.php">Brand</a>';
     echo " ";
-    echo '<a href="admin/category.php">Category</a>';
+    echo '<a class="index" href="admin/category.php">Category</a>';
+    echo " ";
+    echo '<a class="index" href="view/addproduct_form.php">Add Product</a>';
   }
   else{
-    echo '<a href="login/logout.php">Logout</a>';
+    echo '<a class="index" href="view/addproduct_form.php">Add Product</a>';
+    echo " ";
+    echo '<a class="index" href="login/logout.php">Logout</a>';
   }
 }
 else{
-  echo '<a href="login/login.php">Login</a>';
+  echo '<a class="index" href="login/login.php">Login</a>';
   echo " ";
-  echo '<a href="login/register.php">Register</a>';
+  echo '<a class="index" href="login/register.php">Register</a>';
 }
 ?>
 
