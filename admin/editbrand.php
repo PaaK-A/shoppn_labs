@@ -9,11 +9,15 @@
 
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
-        if($_SESSION["role"] == 1){ echo "Hello admin";}
+        if($_SESSION["role"] == 1){ 
+            //echo "Hello admin";
+            $role="Admin";
+        }
 
         else{ 
-            echo "You are not ADMIN.";
-            echo '<a href="l../login/login.php"">Login</a>';
+            //echo "You are not ADMIN.";
+            $role="User";
+            //echo '<a href="l../login/login.php"">Login</a>';
         }
     }
 
@@ -36,6 +40,8 @@
 </head>
 
 <body>
+    <h1>EDIT BRAND <small><?php echo $role ?></small></h1>
+
     <form action= "../actions/update_brand.php" method="POST">
 
         
