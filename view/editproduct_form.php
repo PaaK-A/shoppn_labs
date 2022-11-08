@@ -42,7 +42,7 @@
 
 <h1>EDIT PRODUCT <small><?php echo $role ?></small></h1>
 
-<form action= "../actions/edit_product.php" method="POST">
+<form action= "../actions/edit_product.php" method="POST" enctype="multipart/form-data">
         
         <!-- dropdown menu of CATEGORIES -->
         <h4><label for="editedpcat">Choose a category:</label></h4>
