@@ -17,21 +17,26 @@ if(ISSET($_POST['editproductinfo'])){
     $get_editedpdtdescription= $_POST['editedpdtDescription'];
     $get_editedpdtimage= $_POST['editedpdtImg'];
     $get_editedpdtkeywords= $_POST['editedpdtKeywords'];
+    $imgtmp_name= $_FILES['editedpdtImg']['tmp_name'];
+    $imgfile_name= $_FILES['editedpdtImg']['name'];
+    $folder= "../images/".$imgfile_name;
 
-
-    //update in db
-    if (updateProduct_ctr($get_editedpdtcategory,$get_editedpdtbrand,$get_editedpdttitle,$get_editedpdtprice,$get_editedpdtdescription,$get_editedpdtimage,$get_editedpdtkeywords,$getproductID) != NULL){
-        //print("Record Updated.");
-        echo 
-        '<script type="text/javascript">
-        alertRedirect_view("Product Updated.","addproduct_form.php");
-        </script>';
+    if(move_uploaded_file($imgtmp_name, $folder)){
+        //update in db
+        if (updateProduct_ctr($get_editedpdtcategory,$get_editedpdtbrand,$get_editedpdttitle,$get_editedpdtprice,$get_editedpdtdescription,$folder,$get_editedpdtkeywords,$getproductID) != NULL){
+            //print("Record Updated.");
+            echo 
+            '<script type="text/javascript">
+            alertRedirect_view("Product Updated.","addproduct_form.php");
+            </script>';
+        }
+        else{
+            print("Record Not Updated.");
+        }
     }
     else{
-        print("Record Not Updated.");
-    };
-    
-    
+        echo "Image not found.";
+    }
 }
 
 ?>
