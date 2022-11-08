@@ -2,7 +2,9 @@
     // Initialize the session
     //session_start();
     include("../settings/core.php");
-    include("../controllers/product_contrroller.php");
+    include("../functions/product_functions.php");
+    include_once("../controllers/product_contrroller.php");
+   
 
     // Check if the user is logged in, if not then redirect him to login page
     //if logged in check if admin, if not redirect to login page 
@@ -39,7 +41,7 @@
 <body>
     <h1>PRODUCT FORM <small><?php echo $role ?></small></h1>
 
-    <form action= "../actions/add_product.php" method="POST">
+    <form action= "../actions/add_product.php" method="POST" enctype="multipart/form-data">
         
         <!-- dropdown menu of categories -->
         <h4><label for="productcat">Choose a category:</label></h4>
@@ -47,17 +49,7 @@
 
         <!-- value is categoryid -->
         <select name="productcat" id="productcategory">
-        <option selected="selected">--</option>
-        <?php
-            $selectallcat= selectAllCategories_ctr();
-            
-            foreach ($selectallcat as $row) 
-            :
-        ?>
-        <option value= <?php echo $row['cat_id'];?> >
-        <?php echo $row['cat_name'];?>
-        </option>
-        <?php endforeach;?>
+        <?php get_allCategories_fxn();?>
         </select>
         
         
@@ -67,18 +59,7 @@
 
         <!-- value is brandid -->
         <select name="pdtbrand" id="productbrand">
-        <option selected="selected">--</option>
-
-        <?php
-            $selectallbrand= selectAllBrands_ctr();
-            
-            foreach ($selectallbrand as $row) 
-            :
-        ?>
-        <option value= <?php echo $row['brand_id']?> >
-        <?php echo $row['brand_name']?>
-        <?php endforeach;?>
-        </option>
+        <?php get_allBrands_fxn();?>
         </select>
 
         <!-- create title form. -->
