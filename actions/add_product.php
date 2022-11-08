@@ -23,7 +23,7 @@ if(ISSET($_POST['productinfo'])){
         //echo $folder;
         if( addProduct_ctr($get_productcat,$get_productbrand,$get_producttitle, $get_productprice,$get_productdescription,$folder,$get_productkeywords) != NULL){
             echo '<script>alertRedirect_index("Product Added")</script>';
-            echo 'Record added.';
+            //echo 'Record added.';
         }
         else{
             print("Record Not Added.");
