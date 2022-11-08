@@ -15,7 +15,7 @@ if(ISSET($_POST['productinfo'])){
     $imgtmp_name= $_FILES['productImg']['tmp_name'];
     $imgfile_name= $_FILES['productImg']['name'];
     //$folder= "../images/".$imgfile_name;
-    $folder= "github.com/PaaK-A/shoppn_labs/tree/master/images/".$imgfile_name;
+    $folder= "../images/".$imgfile_name;
     
     //echo $file;
 
