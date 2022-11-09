@@ -14,6 +14,7 @@ if(ISSET($_POST['productinfo'])){
     $get_productkeywords=$_POST['productKeywords'];
     $imgtmp_name= $_FILES['productImg']['tmp_name'];
     $imgfile_name= $_FILES['productImg']['name'];
+    //$folder= "../images/".$imgfile_name;
     $folder= "../images/".$imgfile_name;
     
     //echo $file;
