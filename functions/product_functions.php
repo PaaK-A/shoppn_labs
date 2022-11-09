@@ -1,5 +1,6 @@
 <?php 
-include("../controllers/product_contrroller.php");
+include_once("../controllers/product_contrroller.php");
+
 function get_allCategories_fxn(){
     echo "<option selected='selected'>--</option>";
 
@@ -23,6 +24,17 @@ function get_allBrands_fxn(){
         $brand_name=$row['brand_name'];
         echo "<option value=".$brand_id.">".$brand_name."</option>";
     }
+}
 
+function searchbox_fxn(){
+
+    echo '
+        <form method="POST" action="../view/product_search_result.php">
+        <input type="text" name="searchinput" id="search" placeholder="Search...">
+
+        <input type="submit" name="searchbtn" value="Search">
+        </form>
+    ';
 }
 ?>
+
