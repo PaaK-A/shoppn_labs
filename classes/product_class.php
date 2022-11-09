@@ -53,6 +53,17 @@ class product_class extends db_connection{
 		return $this -> db_query($updatesql);
 	}	
 
+	//-search product--//
+	public function searchProduct_cls($search_term){
+		//write query
+		
+		$searchsql = " SELECT * FROM products WHERE product_title LIKE '%$search_term%' ";
+		
+		//execute 	
+		//print $searchsql;
+		return $this -> db_fetch_all($searchsql);
+	}		
+
 	/* 
 	BRANDS
 	*/
