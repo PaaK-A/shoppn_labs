@@ -1,6 +1,8 @@
 <?php 
 //to start session
-include ("settings/core.php");?>
+include ("settings/core.php");
+include("../functions/product_functions.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +36,19 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     echo " ";
     echo '<a class="index" href="view/addproduct_form.php">Add Product</a>';
     echo " ";
-    echo '<a class="index" href="view/all_product.php">All Products</a>'; 
+    echo '<a class="index" href="view/all_product.php">All Products</a>';
+    echo " ";
+    echo '<a class="index" href="view/product_search_result.php">PSearch</a>';
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo '
+    <form method="POST" action="view/product_search_result.php">
+    <input type="text" name="searchinput" id="search" placeholder="Search...">
+
+    <input type="submit" name="searchbtn" value="Search">
+    </form>
+';
   }
   else{
     echo '<a class="index" href="view/addproduct_form.php">Add Product</a>';
@@ -42,6 +56,16 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     echo '<a class="index" href="view/all_product.php">All Products</a>';
     echo " ";
     echo '<a class="index" href="login/logout.php">Logout</a>';
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo '
+    <form method="POST" action="view/product_search_result.php">
+    <input type="text" name="searchinput" id="search" placeholder="Search...">
+
+    <input type="submit" name="searchbtn" value="Search">
+    </form>
+';
   }
 }
 else{
@@ -52,4 +76,3 @@ else{
 ?>
 
 </body>
-
