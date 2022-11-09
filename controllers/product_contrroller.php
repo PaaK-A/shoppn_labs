@@ -37,6 +37,13 @@ function updateProduct_ctr($pcategory,$pbrand,$ptitle,$pprice,$pdescription,$pim
     return $updateItem->updateProduct_cls($pcategory,$pbrand,$ptitle,$pprice,$pdescription,$pimage,$pkeywords,$productID);
 }
 
+//--search product cls--//
+function searchProduct_ctr($searchproduct_term){
+    $searchItem= new product_class();
+
+    return $searchItem->searchProduct_cls($searchproduct_term);
+}
+
 /*  
 BRANDS
 */
