@@ -2,7 +2,7 @@
     // Initialize the session
     //session_start();
     include_once("../settings/core.php");
-    include_once("../controllers/product_contrroller.php");
+    include_once("../controllers/cart_controller.php");
 
     // Check if the user is logged in, if not then redirect him to login page
     //if logged in check if admin, if not redirect to login page 
@@ -24,6 +24,9 @@
     else{
         header("location: ../login/login.php");
     }
+
+    $getcustomerID= $_SESSION['cid'];
+
 
 ?>
 
@@ -62,13 +65,18 @@
                             </ul>
                         </li> -->
                     </ul>
-                    <!-- <form class="d-flex">
+                    <form class="d-flex" action="../view/cart.php">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">
+                                <?php 
+                                    $selallCart= selectAllCart_ctr();
+                                    echo countCart_ctr($getcustomerID);
+                                ?>
+                            </span>
                         </button>
-                    </form> -->
+                    </form>
                 </div>
             </div>
         </nav>

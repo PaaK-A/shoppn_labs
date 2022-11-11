@@ -3,7 +3,8 @@
     //session_start();
     include("../settings/core.php");
     include("../controllers/product_contrroller.php");
-    
+    include("nav_footer.php");
+
 
     // Check if the user is logged in, if not then redirect him to login page
     //if logged in check if admin, if not redirect to login page 
@@ -102,7 +103,7 @@
     <div class="container"><h1>PRODUCTS <small><?php echo $role ?></small></h1></div>
 
     <!-- html -->
-    <div class="album py-5 bg-light">
+   
         <div class="container">
             
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -131,8 +132,8 @@
                                     <p class="card-text">'.$product_title.'</p>
                                         <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
-                                                <a href="single_product.php?id='.$product_id.'" type="button" class="btn btn-sm btn-outline-secondary">View</a>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                                                <a href="single_product.php?pid='.$product_id.'" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                                                <a href="../actions/add_to_cart.php?pid='.$product_id.'" type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</a>
                                                 </div>
                                             <small class="card-text">GHS'.$product_price.'</small>
                                         </div>
@@ -148,7 +149,7 @@
 
             </div>
         </div>
-    </div>
+    
         
 </body>
 </html>
