@@ -116,7 +116,7 @@ class db_connection
 	*@return a count
 	**/
 	function db_count(){
-		
+			
 		//check if result was set
 		if ($this->results == null) {
 			return false;
