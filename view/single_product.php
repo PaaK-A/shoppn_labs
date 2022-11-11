@@ -27,7 +27,7 @@
         header("location: ../login/login.php");
     }
 
-    $_SESSION['id']= $_GET['id'];
+    $_SESSION['id']= $_GET['pid'];
     $getproductID= $_SESSION['id'];
     $selectoneP=selectAProduct_ctr($getproductID);
 ?>
@@ -75,16 +75,31 @@
                         echo $selectoneP['product_desc'];
                         ?></p>
                         <div class="d-flex">
-                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <!-- product quantity -->
+                            <input class="form-control text-center me-3" name="productqty" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+
+                            <a href= "../actions/add_to_cart.php?pid=<?php echo $selectoneP['product_id']?>&?qty=<?php echo $selectoneP['product_cat'] ?>" class="btn btn-outline-dark flex-shrink-0" id="toCart" onclick="quantittee()">
                                 <i class="bi-cart-fill me-1"></i>
                                 Add to cart
-                            </button>
+                                
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+    </section>
+        
  </body>
 
  </html>
+
+ <script type="text/javascript">
+
+  function quantittee(){
+    //event.preventDefault();
+    var qttt=document.getElementById('inputQuantity').value;
+    //alert(qttt);
+    document.getElementById('toCart').href="../actions/add_to_cart.php?pid=<?php echo $selectoneP['product_id']?>&qty="+qttt;
+    
+  }  
+ </script>
