@@ -1,6 +1,6 @@
 <?php
 //connect to database class
-require("../settings/db_class.php");
+require_once("../settings/db_class.php");
 
 /**
 *General class to handle all functions 
@@ -41,6 +41,16 @@ class customer_class extends db_connection
 
 		//execute 	
 		return $this -> db_fetch_all($selallsql);
+	}
+
+	//--SELECT A customer--//
+	public function selectACustomer_cls($customerid){
+		//write query
+		
+		$selsql = "SELECT * FROM customer WHERE customer_id= '$customerid'";
+
+		//execute 	
+		return $this -> db_fetch_one($selsql);
 	}
 	
 	//--SELECT one email--//
