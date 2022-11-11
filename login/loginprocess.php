@@ -25,7 +25,7 @@ include "../controllers/customer_controller.php";
                         
             // Store data in session variables
             $_SESSION["loggedin"] = true;
-            $_SESSION["id"] = $emailq['customer_id'];
+            $_SESSION["cid"] = $emailq['customer_id'];
             $_SESSION["role"] = $emailq['user_role'];  
             header("location: ../index.php");   
         }
@@ -37,7 +37,7 @@ include "../controllers/customer_controller.php";
                         
             // Store data in session variables
             $_SESSION["loggedin"] = true;
-            $_SESSION["id"] = $emailq['customer_id'];
+            $_SESSION["cid"] = $emailq['customer_id'];
             $_SESSION["role"] = $emailq['user_role'];   
             header("location: ../index.php"); 
         }
