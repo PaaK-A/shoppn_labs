@@ -101,9 +101,7 @@ $getcustomerID= $_SESSION['cid'];
                                         array_push($tprices_array,$item_total);
                                         echo '<tr>
                                             <td class="product__cart__item">
-                                                <div class="product__cart__item__pic">
-                                                <img src='.$selfromProducts['product_image'].' alt="">
-                                                </div>
+                                                
                                                 <div class="product__cart__item__text">
                                                     <h6>'.$selfromProducts['product_title'].'</h6>
                                                     <h5>GHC '.$selfromProducts['product_price'].'</h5>
@@ -112,7 +110,9 @@ $getcustomerID= $_SESSION['cid'];
                                             <td class="quantity__item">
                                                 <div class="quantity">
                                                     <div class="pro-qty-2">
+                                                    <span class="fa fa-angle-left dec qtybtn"></span>
                                                         <input type="text" value="'.$row['qty'].'" name="cart_quantity" id="cart_qty">
+                                                        <span class="fa fa-angle-right inc qtybtn"></span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -160,5 +160,8 @@ $getcustomerID= $_SESSION['cid'];
         </div>
     </section>
     <!-- Shopping Cart Section End -->
+
+    <!-- JS PLUGINS -->
+    <script src="../js/main.js"></script>
 </body>
 </html>
