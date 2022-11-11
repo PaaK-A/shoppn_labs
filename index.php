@@ -39,6 +39,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     echo '<a class="index" href="view/all_product.php">All Products</a>';
     echo " ";
     echo '<a class="index" href="view/product_search_result.php">PSearch</a>';
+    echo " ";
+    echo '<a class="index" href="view/cart.php">Cart</a>';
     echo "<br>";
     echo "<br>";
     echo "<br>";
@@ -56,6 +58,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     echo '<a class="index" href="view/all_product.php">All Products</a>';
     echo " ";
     echo '<a class="index" href="login/logout.php">Logout</a>';
+    echo " ";
+    echo '<a class="index" href="view/cart.php">Cart</a>';
     echo "<br>";
     echo "<br>";
     echo "<br>";
