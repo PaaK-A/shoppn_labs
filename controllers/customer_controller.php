@@ -16,13 +16,21 @@ function addCustomer_ctr($a,$b,$c,$d,$e,$f,$g){
 }
 
 
-//--SELECT ONE--//
+//--SELECT ONE email--//
 function selectOneCustomer_ctr($customerinfo,$email){
     $selectOneItem= new customer_class();
 
    $selectOneItem->selectOne_cls($customerinfo,$email);
 
    return $selectOneItem;
+    
+}
+
+//--SELECT A Product--//
+function selectACustomer_ctr($customerid){
+    $selectAProduct= new customer_class();
+
+    return $selectAProduct->selectACustomer_cls($customerid);
     
 }
 
