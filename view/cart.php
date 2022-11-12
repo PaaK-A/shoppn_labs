@@ -1,5 +1,6 @@
 <script src="https://kit.fontawesome.com/78711647c2.js" crossorigin="anonymous"></script>
 
+
 <?php 
 include("../settings/core.php");
 include ("../controllers/product_contrroller.php");
@@ -118,7 +119,7 @@ $getcustomerID= $_SESSION['cid'];
                                             </td>
                                             <td class="cart__price">GHC '.$item_total.'</td>
                                             <td class="cart__close">
-                                            <a href="../actions/remove_from_cart.php?'.$selfromProducts['product_id'].'">
+                                            <a href="../actions/remove_from_cart.php?pid='.$selfromProducts['product_id'].'" onclick="return confirmdelete()">
                                             <i class="fa-solid fa-xmark"></i>
                                             </a>
                                             </td>
@@ -163,5 +164,16 @@ $getcustomerID= $_SESSION['cid'];
 
     <!-- JS PLUGINS -->
     <script src="../js/main.js"></script>
+
+    <script>
+        function confirmdelete(){
+            if (confirm('Record will be deleted. Proceed?') == true ){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>

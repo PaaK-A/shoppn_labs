@@ -56,7 +56,7 @@ class cart_class extends db_connection{
     /**DELETE CART */
     public function deleteCart_cls($productID){
         //write query
-        $delsql= "DELETE * FROM cart WHERE p_id= '$productID'";
+        $delsql= "DELETE FROM cart WHERE p_id= '$productID'";
 
         //execute
         return $this -> db_query($delsql);
