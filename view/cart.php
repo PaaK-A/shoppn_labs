@@ -1,6 +1,5 @@
 <script src="https://kit.fontawesome.com/78711647c2.js" crossorigin="anonymous"></script>
 
-
 <?php 
 include("../settings/core.php");
 include ("../controllers/product_contrroller.php");
@@ -111,9 +110,9 @@ $getcustomerID= $_SESSION['cid'];
                                             <td class="quantity__item">
                                                 <div class="quantity">
                                                     <div class="pro-qty-2">
-                                                    <span class="fa fa-angle-left dec qtybtn"></span>
+                                                    <span onclick="decrease_btn()" class="fa fa-angle-left dec qtybtn"></span>
                                                         <input type="text" value="'.$row['qty'].'" name="cart_quantity" id="cart_qty">
-                                                        <span class="fa fa-angle-right inc qtybtn"></span>
+                                                    <span onclick="increase_btn()" class="fa fa-angle-right inc qtybtn"></span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -134,8 +133,7 @@ $getcustomerID= $_SESSION['cid'];
                                         // echo "-";
                                               
                                     }
-                                }
-                                ?>
+                                }                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -152,7 +150,7 @@ $getcustomerID= $_SESSION['cid'];
                         <h6>Cart total</h6>
                         <ul>
                             <!-- <li>Subtotal <span>$ 169.50</span></li> -->
-                            <li>Total <span><?php  echo "GHS ". number_format(array_sum($tprices_array),2); ?></span></li>
+                            <li>Total <span><?php  echo "GHC ". number_format(array_sum($tprices_array),2); ?></span></li>
                         </ul>
                         <a href="#" class="primary-btn">Proceed to checkout</a>
                     </div>
@@ -162,10 +160,9 @@ $getcustomerID= $_SESSION['cid'];
     </section>
     <!-- Shopping Cart Section End -->
 
-    <!-- JS PLUGINS -->
-    <script src="../js/main.js"></script>
+    
 
-    <script>
+    <script type="text/javascript">
         function confirmdelete(){
             if (confirm('Record will be deleted. Proceed?') == true ){
                 return true;
@@ -173,6 +170,22 @@ $getcustomerID= $_SESSION['cid'];
             else{
                 return false;
             }
+        }
+
+        function decrease_btn(){
+            var oldValue= document.getElementById("cart_qty").value;
+
+            if (oldValue > 0){
+                document.getElementById("cart_qty").value = parseInt(document.getElementById("cart_qty").value)-1;
+            }
+            else{
+                oldValue=0;
+            }
+
+        }
+
+        function increase_btn(){
+            document.getElementById("cart_qty").value = parseInt(document.getElementById("cart_qty").value)+1;
         }
     </script>
 </body>
