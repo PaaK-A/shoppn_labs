@@ -58,30 +58,33 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 
 // $QTY=3;
 // $IP=4;
-if ($getqty == NULL){
-    $getqty=1;
-    //echo $getqty;
-    if(addCart_ctr($getproductID,$ipaddress,$getcustomerID,$getqty) != NULL){
-        echo '<script>alertRedirect_view("Product Added","all_product.php")</script>';
-        //echo "yh";
-    }
-    else{
-        echo '<script>alertRedirect_view("Not Added To Cart","single_product.php?pid='.$getproductID.'")</script>';
-        //echo "nah";
-    }
+if (checkExists_ctr($getcustomerID,$getproductID)>0){
+    echo "Product already in cart";
 }
 else{
-    if(addCart_ctr($getproductID,$ipaddress,$getcustomerID,$getqty) != NULL){
-        echo '<script>alertRedirect_view("Product Added","all_product.php")</script>';
-        //echo "yh";
+    if ($getqty == NULL){
+        $getqty=1;
+        //echo $getqty;
+        if(addCart_ctr($getproductID,$ipaddress,$getcustomerID,$getqty) != NULL){
+            echo '<script>alertRedirect_view("Product Added","all_product.php")</script>';
+            //echo "yh";
+        }
+        else{
+            echo '<script>alertRedirect_view("Not Added To Cart","single_product.php?pid='.$getproductID.'")</script>';
+            //echo "nah";
+        }
     }
     else{
-        echo '<script>alertRedirect_view("Not Added To Cart","single_product.php?pid='.$getproductID.'")</script>';
-        //echo "nah";
+        if(addCart_ctr($getproductID,$ipaddress,$getcustomerID,$getqty) != NULL){
+            echo '<script>alertRedirect_view("Product Added","all_product.php")</script>';
+            //echo "yh";
+        }
+        else{
+            echo '<script>alertRedirect_view("Not Added To Cart","single_product.php?pid='.$getproductID.'")</script>';
+            //echo "nah";
+        }
     }
 }
-
- 
 
 //echo $_SESSION['loggedin'];
 ?>

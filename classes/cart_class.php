@@ -54,21 +54,31 @@ class cart_class extends db_connection{
 	}	
 
     /**DELETE CART */
-    public function deleteCart_cls($productID){
+    public function deleteCart_cls($productID,$customerID){
         //write query
-        $delsql= "DELETE FROM cart WHERE p_id= '$productID'";
+        $delsql= "DELETE FROM cart WHERE p_id= '$productID' AND c_id= '$customerID'";
 
         //execute
         return $this -> db_query($delsql);
     }
 
-    /**COUNT PRODUCTS IN CART */
+    /**COUNT total PRODUCTS IN CART */
     public function countCart_cls($customerid){
         $countsql = "SELECT * FROM cart WHERE c_id='$customerid' ";
 
         //execute
         return $this -> db_count_one($countsql); 
  
+    }
+
+    /**check if product exists IN CART */
+    public function checkExists_cls($customerid,$productid){
+        $countsql = "SELECT * FROM cart 
+        WHERE c_id='$customerid' AND p_id='$productid' ";
+
+        //execute
+        //print $countsql;
+        return $this -> db_count_one($countsql); 
     }
 
 	//-search cart--//

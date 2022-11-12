@@ -38,10 +38,10 @@ function updateCart_ctr($productid,$ipaddress,$customerid,$qty){
 }
 
 /**DELETE CART */
-function deleteCart_ctr($cartproductid){
+function deleteCart_ctr($cartproductid,$cartcustomerid){
     $deleteItem= new cart_class();
 
-    return $deleteItem->deleteCart_cls($cartproductid);
+    return $deleteItem->deleteCart_cls($cartproductid,$cartcustomerid);
 }
 
 /**COUNT CART PRODUCTS */
@@ -49,6 +49,14 @@ function countCart_ctr($customerID){
     $countItem= new cart_class();
 
     return $countItem-> countCart_cls($customerID);
+}
+
+/**check if PRODUCT exists */
+function checkExists_ctr($customerID,$productID){
+    $checkItem= new cart_class();
+
+    return $checkItem-> checkExists_cls($customerID,$productID);
+    
 }
 //--search product cls--//
 // function searchCart_ctr($search_term){
